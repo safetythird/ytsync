@@ -27,7 +27,7 @@ def main():
     top_dir = os.getcwd()
     playlists = open(os.path.join(YTSYNC_DIR, CONFIG_FILE)).readlines()
     info_fetcher = youtube_dl.YoutubeDL({'skip_download': True, 'extract_flat': 'in_playlist'})
-    downloader = youtube_dl.YoutubeDL()
+    downloader = youtube_dl.YoutubeDL({'ignoreerrors': True})
     for playlist in playlists:
         logger.info("Processing playlist {}".format(playlist))
         # Get videos in playlist so we can diff
